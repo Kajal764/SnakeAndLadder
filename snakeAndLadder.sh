@@ -33,10 +33,6 @@ function movePosition(){
 		$LADDER)
 			echo "Ladder Move"
 			position=$(( $position + $die ))
-			if [[ $position -gt 100 ]]
-			then
-				position=$(( $position - $die ))
-			fi
 		;;
 		esac
 	 	echo $position
