@@ -10,39 +10,44 @@ LADDER=2
 WINNING_POSITION=100
 
 #variable
+positionOfPlayer1=0
+positionOfPlayer2=0
+player=1
 position=0
-noOfDie=0
 
-function movePosition(){
-	while [[  $position -ne $WINNING_POSITION ]]
-	do
+function getPosition(){
+		position=$1
 		die=$(($((RANDOM%6))+1))
-		echo "die value $die"
 		move=$(($RANDOM%3))
-
 		case $move in
 		$NOPLAY)
-			echo "No Move"
 		;;
 		$SNAKE)
-			echo "Snake Move"
 			if [ $(( $position - $die )) -ge $START ]
 			then
 				  position=$(( $position - $die ))
 			fi
 		;;
 		$LADDER)
-			echo "Ladder Move"
 			if [[ $(($position + $die)) -le $WINNING_POSITION ]]
 			then
 				position=$(($position + $die))
 			fi
 		;;
 		esac
-		dieRoll=$(($dieRoll+1))
-		echo "dieRoll $dieRoll"
-	 	echo "position $position"
-	done
+
+		echo $position
 
 }
-movePosition
+
+function getWinningPlayer(){
+	while [[  $positionOfPlayer1 -lt $WINNING_POSITION ]]
+	do
+			position=$(getPosition $positionOfPlayer1 )
+			positionOfPlayer1=$position
+			echo  "positionOfPlayer1 $positionOfPlayer1"
+	done
+
+		echo "WINNER !!!"
+}
+getWinningPlayer
