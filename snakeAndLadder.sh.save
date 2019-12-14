@@ -11,7 +11,7 @@ WINNING_POSITION=100
 
 #variable
 position=0
-noOfDie=0
+
 
 function movePosition(){
 	while [[  $position -ne $WINNING_POSITION ]]
@@ -39,8 +39,6 @@ function movePosition(){
 			fi
 		;;
 		esac
-		dieRoll=$(($dieRoll+1))
-		echo "dieRoll $dieRoll"
 	 	echo "position $position"
 	done
 
