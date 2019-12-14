@@ -16,10 +16,10 @@ player=1
 position=0
 
 function getPosition(){
-		position=$1
-		die=$(($((RANDOM%6))+1))
-		move=$(($RANDOM%3))
-		case $move in
+	position=$1
+	die=$(($((RANDOM%6))+1))
+	move=$(($RANDOM%3))
+	case $move in
 		$NOPLAY)
 		;;
 		$SNAKE)
@@ -35,14 +35,13 @@ function getPosition(){
 			fi
 		;;
 		esac
-
-		echo $position
+	echo $position
 }
 
 function getWinningPlayer(){
 	while [[  $positionOfPlayer1 -lt $WINNING_POSITION && $positionOfPlayer2 -lt $WINNING_POSITION ]]
 	do
-		if [[ $player -eq 1 ]]
+  		if [[ $player -eq 1 ]]
 		then
 			echo "player 1"
 			position=$(getPosition $positionOfPlayer1 )
@@ -53,7 +52,7 @@ function getWinningPlayer(){
 			echo "player 2"
 			position=$(getPosition $positionOfPlayer2)
 			positionOfPlayer2=$position
-         echo  "positionOfPlayer2 $positionOfPlayer2"
+        	 	echo  "positionOfPlayer2 $positionOfPlayer2"
 			player=1
 		fi
 	done
