@@ -44,16 +44,10 @@ function getWinningPlayer(){
 	do
 		if [[ $player -eq 1 ]]
 		then
-			echo "player 1"
-			position=$(getPosition $positionOfPlayer1 )
-			positionOfPlayer1=$position
-			echo  "positionOfPlayer1 $positionOfPlayer1"
+			positionOfPlayer1=$(getPosition $positionOfPlayer1 )
 			player=2
 		else
-			echo "player 2"
-			position=$(getPosition $positionOfPlayer2)
-			positionOfPlayer2=$position
-         echo  "positionOfPlayer2 $positionOfPlayer2"
+			positionOfPlayer2=$(getPosition $positionOfPlayer2)
 			player=1
 		fi
 	done
